@@ -1,0 +1,258 @@
+body {
+    background-color: #230312;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #1D000D;
+    height: 70px;
+}
+
+.cont {
+    width: 60%;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+nav {
+    color: white !important;
+}
+
+nav input {
+    border-radius: 10px;
+    border: 0;
+    padding-left: 10px;
+}
+
+.nav1 {
+    display: flex;
+}
+
+.nav2 {
+    display: none;
+}
+
+main {
+    color: white;
+    margin-top: 50px !important;
+}
+
+.text-cont {
+    width: 75%;
+}
+
+.text-cont p {
+    width: 80%;
+    margin: auto;
+}
+
+.glass {
+    width: 25%;
+}
+
+.glass img {
+    width: 100%;
+}
+
+.patreon {
+    width: 200px;
+}
+
+.searchArea {
+    margin-top: 30px;
+    height: 100px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+}
+
+.searchArea input {
+    width: 300px;
+    height: 40px;
+    border: 0;
+    border-radius: 12px 0 0 12px;
+    padding-left: 15px;
+}
+
+.searchArea input:focus {
+    outline: 0;
+}
+
+.searchArea button {
+    height: 40px;
+    background-color: white;
+    border: 0;
+    border-left: 1px solid lightgray;
+    border-radius: 0 12px 12px 0;
+}
+
+#sr {
+    color: white;
+    text-align: center;
+    display: none;
+    margin-top: 100px;
+}
+.col{
+    cursor: pointer;
+}
+.col img{
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.493);
+}
+#ingredientThumb {
+    height: 300px;
+    width: 40%;
+    /* border: 1px solid red; */
+}
+
+#ingredientsDetails {
+    min-height: 300px;
+    width: 60%;
+    /* border: 1px solid green; */
+    /* padding-left: 20px; */
+}
+
+#instructions {
+    padding-left: 15px;
+}
+
+#details {
+    display: none;
+    padding-top: 50px;
+}
+
+.btn.btn-warning {
+    border-radius: 50px 0 0 50px;
+}
+#btn-cont{
+    display: none;
+}
+
+/* footer-start */
+footer {
+    background-color: #546b5c1e;
+    height: 150px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.earth {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+.img {
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    position: relative;
+}
+
+.later {
+    letter-spacing: 8px;
+}
+
+.border {
+    border: 2px solid red;
+}
+
+.icons a {
+    color: white;
+    text-decoration: none;
+    margin: 0;
+}
+
+.icons {
+    position: relative;
+    top: 30px;
+    margin: 0;
+}
+/* footer-end */
+
+@media only screen and (max-width:688px) {
+
+    .malkhamo{
+        height: 150px;
+    }
+    main {
+        width: 100% !important;
+        margin: 0;
+        align-items: center;
+    }
+
+    header {
+        height: 0;
+    }
+
+    .nav1 {
+        display: none !important;
+    }
+
+    .nav2 {
+        display: block;
+        width: 95%;
+        margin: auto;
+        background-color: transparent;
+        /* height: 70px; */
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    }
+    .nav2 a{
+        color: white;
+        
+    }
+    .nav2 ul{
+        padding-top: 20px;
+        padding-left: 10px;
+        
+    }
+    form{
+        padding-left: 10px;
+    }
+    .navbar-toggler1 {
+        /* outline: 0!important; */
+        border-radius: 5px;
+        width: 50px;
+        height: 40px;
+        border: 0.5px solid rgba(211, 211, 211, 0.198);
+        background-color: transparent;
+    }
+    .navbar-toggler1 i{
+        /* outline: 0!important; */
+        font-size: 25px;
+        
+    }
+    .nav-item:first-child{
+        background-color: #C52D2F;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+    .smallDevice{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #details{
+        /* margin: 0; */
+    }
+    #ingredientThumb {
+        height: 300px;
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+    #ingredientsDetails {
+        min-height: 300px;
+        width: 100%;
+    
+    }
+}

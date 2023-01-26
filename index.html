@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link href="https://kit-pro.fontawesome.com/releases/v6.0.0/css/pro.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="d-flex">
+        <!-- place navbar here -->
+        <nav class="cont nav1">
+            <div class="nav-left w-50"><img style="height: 80px;" onclick="home()" src="./images/logo 2.png" alt="">
+            </div>
+            <div class="nav-right w-50 d-flex justify-content-end gap-5 align-items-center">
+                <a href="">Home</a>
+                <a target="_blank" href="https://www.facebook.com/anindya.baul.Mrinmoy"><i style="background-color: #f3ec78;
+                    background-image: linear-gradient(180deg, #51baf7, #0a68d4);
+                    background-size: 100%;
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    -webkit-text-fill-color: transparent; 
+                    -moz-text-fill-color: transparent;font-size: 30px;" class="fa-brands fa-facebook"></i></a>
+
+
+                <input type="text" placeholder="Search">
+
+            </div>
+        </nav>
+
+    </header>
+    <nav class="navbar navbar-expand-lg nav2">
+        <div class="container-fluid">
+            <img onclick="home()" style="height: 70px;" src="./images/logo 2.png" alt="">
+            <button id="navTog" onclick="navTog()" class="navbar-toggler1  d-flex align-items-center p-0" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-light fa-bars text-light w-100"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a onclick="home()" class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a target="_blank" href="https://www.facebook.com/anindya.baul.Mrinmoy"><i style="background-color: #f3ec78;
+                    background-image: linear-gradient(180deg, #51baf7, #0a68d4);
+                    background-size: 100%;
+                    -webkit-background-clip: text;
+                    -moz-background-clip: text;
+                    -webkit-text-fill-color: transparent; 
+                    -moz-text-fill-color: transparent;font-size: 25px; margin-top: 20px;"
+                                class="fa-brands fa-facebook"></i></a>
+                    </li>
+
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <section id="BlockBox">
+
+        <main class="cont d-flex">
+            <div class="glass"><img src="./images/cocktail_left.png" alt=""></div>
+            <div class="text-center text-cont">
+                <h1>Welcome to </h1>
+                <img class="malkhamo" src="./images/Untitled-2.png" alt="">
+            </div>
+            <div class="glass"><img src="./images/cocktail_right.png" alt=""></div>
+        </main>
+        <section class="searchArea cont d-flex justify-content-center align-items-center">
+            <input id="InputBox" placeholder="মাল খোঁজ করুন" type="text">
+            <button onclick="btn()" class=""><i class="fa-duotone fa-wine-bottle fs-4"></i></button>
+        </section>
+
+    </section>
+maal khoj korun
+    <section class="my-3" id="default-drinks">
+        <h1 style="color: #9A5007;" id="top" class="text-center">Top Drinks</h1>
+
+    </section>
+    <div id="btn-cont" class="cont mt-5">
+        <button onclick="goBackF()" class="btn btn-warning mb-5">Go Back</button>
+    </div>
+
+    <section id="details" class="cont text-light">
+
+        <div class="d-flex smallDevice">
+            <div id="ingredientThumb"></div>
+            <div id="ingredientsDetails">
+                <ol id="ListIngredient">
+
+
+                </ol>
+                <p id="instructions"></p>
+            </div>
+        </div>
+        <div id="recipeDetails"></div>
+    </section>
+
+    <section id="mother-cont" class="cont">
+        <h1 id="sr">Search Results</h1>
+        <div id="mother" class="row row-cols-1 row-cols-lg-4 row-cols-sm-2 row-cols-md-3">
+
+        </div>
+    </section>
+
+
+
+    <footer style="margin-top: 100px;">
+        <div style="text-align: center;" class="later">
+            <p>
+                &copy;MiDnight C<img class="img" src="https://i.ibb.co/fXT6jFd/giphy.webp" alt=""> DERS <i
+                    class="fa-solid fa-moon"></i> || 2023
+            </p>
+            <div class="icons">
+                <a target="_blank" href="mailto:midnightcoder71@gmail.com"><i class="fa-solid fa-paper-plane"></i></a>
+                <a target="_blank" href="tel:+8801317750230"><i class="fa-solid fa-mobile-button"></i></a>
+                <a target="_blank" href="https://www.facebook.com/MiDnight-Coders-Web-Solutions-106000918795814"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a target="_blank" href="https://github.com/AnindyaBaul?tab=repositories"><i
+                        class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- footer ends -->
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

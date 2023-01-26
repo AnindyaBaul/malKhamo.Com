@@ -1,0 +1,16 @@
+strDrinkThumb
+
+strDrink
+
+
+
+function Recipe(drinks){
+    for(const drink of drinks){
+        const {strDrink,strDrinkThumb}=drink
+        const newDiv=document.createElement("div")
+        newDiv.classList="col";
+        newDiv.innerHTML=`<img class="w-100" src="${strDrinkThumb}"> <p class="text-light text-center"> ${strDrink}</P>`
+        mother.appendChild(newDiv)
+    }
+
+}
