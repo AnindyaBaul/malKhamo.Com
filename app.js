@@ -1,4 +1,5 @@
 var input = document.getElementById("InputBox")
+var input2 = document.getElementById("InputBox2")
 var BlockBox = document.getElementById("BlockBox")
 var listIngredient = document.getElementById("ListIngredient")
 var ingredientsDetails = document.getElementById("ingredientsDetails")
@@ -9,13 +10,35 @@ var mother = document.getElementById("mother")
 var defaultDrinks = document.getElementById("default-drinks")
 var sr = document.getElementById('sr')
 var searchCount=0;
+var searchCount2=false;
 var goBack=document.getElementById('btn-cont')
+
 function btn() {
     var InputBox = input.value
     
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${InputBox}`)
         .then(res => res.json())
-        .then(data => Recipe(data.drinks))
+        .then(data => {
+            console.log(data)
+            Recipe(data.drinks)
+        })
+
+    BlockBox.innerHTML = "";
+    mother.innerHTML=""
+    sr.style.display = 'block';
+    document.getElementById('details').style.display='none';
+    goBack.style.display='block'
+    document.getElementById('top').style.display='none'
+}
+function btn2() {
+    var InputBox2 = input2.value
+    searchCount2=true;
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${InputBox2}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            Recipe(data.drinks)
+        })
 
     BlockBox.innerHTML = "";
     mother.innerHTML=""
@@ -31,15 +54,41 @@ function home() {
     document.getElementById('top').style.display='none'
 }
 function goBackF(){
-    if(searchCount==1){
-        home();
+    
+
+    if(searchCount2==false){
+        if(searchCount==1){
+            home();
+        }
+        else if(searchCount==2){
+            btn();
+            // btn2();
+            searchCount=0;
+        }
+        else{
+            btn();
+            // btn2();
+            searchCount=0;
+        }
     }
-    else if(searchCount==2){
-        btn();
-        searchCount=0;
+    else{
+        if(searchCount==1){
+            home();
+        }
+        else if(searchCount==2){
+            // btn();
+            btn2();
+            searchCount=0;
+        }
+        else{
+             // btn();
+             btn2();
+             searchCount=0;
+        }
     }
 }
 function Recipe(drinks) {
+    
     searchCount=searchCount+1;
     for (const drink of drinks) {
         const { strDrinkThumb, strDrink,idDrink } = drink

@@ -94,14 +94,15 @@ main {
     color: white;
     text-align: center;
     display: none;
-    margin-top: 100px;
+    margin-top: 20px;
 }
-.col{
+nav img{
     cursor: pointer;
 }
 .col img{
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.493);
+    cursor: pointer;
 }
 #ingredientThumb {
     height: 300px;
@@ -254,5 +255,55 @@ footer {
         min-height: 300px;
         width: 100%;
     
+    }
+}
+@media only screen and (min-width:689px) and (max-width:992px){
+    .nav1 {
+        display: none !important;
+    }
+    header{
+        height: 0;
+    }
+    .nav2 {
+        display: block;
+        width: 95%;
+        margin: auto;
+        background-color: transparent;
+        /* height: 70px; */
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    }
+    .navbar-toggler1 {
+        /* outline: 0!important; */
+        border-radius: 5px;
+        width: 50px;
+        height: 40px;
+        border: 0.5px solid rgba(211, 211, 211, 0.198);
+        background-color: transparent;
+    }
+    .navbar-toggler1 i{
+        /* outline: 0!important; */
+        font-size: 25px;
+        
+    }
+    .nav-item:first-child{
+        background-color: #C52D2F;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+    form{
+        padding-left: 10px;
+    }
+    .nav2 ul{
+        padding-top: 20px;
+        padding-left: 10px;
+        
+    }
+    .bottle{
+        position: relative;
+        left: -25px;
     }
 }
