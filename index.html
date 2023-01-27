@@ -18,6 +18,8 @@
 
     <link href="https://kit-pro.fontawesome.com/releases/v6.0.0/css/pro.min.css" rel="stylesheet">
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -79,8 +81,10 @@
                     background-color: white;
                     border: 0;
                     border-left: 1px solid lightgray;
-                    border-radius: 0 12px 12px 0;" onclick="btn2()" class=""><i class="fa-duotone fa-wine-bottle fs-4"></i></button>
+                    border-radius: 0 12px 12px 0;" onclick="btn2()" class=""><i
+                            class="fa-duotone fa-wine-bottle fs-4"></i></button>
                 </div>
+
             </div>
         </div>
     </nav>
@@ -94,10 +98,24 @@
             </div>
             <div class="glass"><img src="./images/cocktail_right.png" alt=""></div>
         </main>
-        <section class="searchArea cont d-flex justify-content-center align-items-center">
-            <input id="InputBox" placeholder="মাল খোঁজ করুন" type="text">
-            <button onclick="btn()" class=""><i class="fa-duotone fa-wine-bottle fs-4"></i></button>
+        <section class="searchArea d-flex flex-column align-items-center justify-content-center gap-2 cont">
+            <div class=" d-flex justify-content-center align-items-center">
+                <input id="InputBox" placeholder="মাল খোঁজ করুন" type="text">
+                <button onclick="btn()" class=""><i class="fa-duotone fa-wine-bottle fs-4"></i></button>
+            </div>
+            <div id="" class="d-flex gap-3">
+                <p class="text-light db-info">
+                    <i class="fa-thin fa-martini-glass text-warning"></i> Total Drinks: 635
+                </p>
+                <p class="text-light db-info ">
+                    <i class="fa-solid fa-citrus-slice text-success"></i>Total Ingredients: 489
+                </p>
+                <p class="text-light db-info ">
+                    <i class="fa-regular fa-beer-mug text-danger"></i> Drink Images: 635(92cc)
+                </p>
+            </div>
         </section>
+
 
     </section>
 
@@ -111,13 +129,15 @@
 
     <section id="details" class="cont text-light">
 
-        <div class="d-flex smallDevice">
-            <div id="ingredientThumb"></div>
-            <div id="ingredientsDetails">
+        <div  data-aos="fade-up" data-aos-duration="1000"   class="d-flex smallDevice">
+            <div  id="ingredientThumb"></div>
+            <div   id="ingredientsDetails">
+                <h3 class="p-3 text-warning">Ingredients</h3>
                 <ol id="ListIngredient">
 
 
                 </ol>
+                <h3 class="p-3 text-warning">Instructions</h3>
                 <p id="instructions"></p>
             </div>
         </div>
@@ -161,6 +181,13 @@
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
 
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
     <script src="./app.js"></script>
 </body>
 

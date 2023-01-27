@@ -65,7 +65,7 @@ main {
 
 .searchArea {
     margin-top: 30px;
-    height: 100px;
+    height: 120px;
     border-top: 3px solid white;
     border-bottom: 3px solid white;
 }
@@ -101,13 +101,32 @@ nav img{
 }
 .col img{
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.493);
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.493); */
+   
     cursor: pointer;
+}
+.col img{
+    transition: 300ms ease-in-out;
+}
+
+.col img:hover{
+    transform: scale(1.1);
+
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.493);
+}
+.col:hover .col img{
+    
+   
+   
+
 }
 #ingredientThumb {
     height: 300px;
     width: 40%;
-    /* border: 1px solid red; */
+  
+}
+#ingredientThumb img{
+   border-radius: 10px;
 }
 
 #ingredientsDetails {
@@ -256,6 +275,14 @@ footer {
         width: 100%;
     
     }
+    .searchArea{
+        width: 90%;
+        text-align: center;
+        height: 170px;
+    }
+    .db-info{
+        font-size: 10px!important;
+    }
 }
 @media only screen and (min-width:689px) and (max-width:992px){
     .nav1 {
@@ -306,4 +333,8 @@ footer {
         position: relative;
         left: -25px;
     }
+    #mother img{
+        width: 100%;
+    }
+    
 }

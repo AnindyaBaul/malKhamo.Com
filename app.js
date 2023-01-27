@@ -9,199 +9,216 @@ var recipeDetails = document.getElementById("recipeDetails")
 var mother = document.getElementById("mother")
 var defaultDrinks = document.getElementById("default-drinks")
 var sr = document.getElementById('sr')
-var searchCount=0;
-var searchCount2=false;
-var goBack=document.getElementById('btn-cont')
+var searchCount = 0;
+var searchCount2 = false;
+var goBack = document.getElementById('btn-cont')
 
 function btn() {
     var InputBox = input.value
-    
+
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${InputBox}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            Recipe(data.drinks)
+            if (data.drinks != null) {
+                // console.log(data)
+                Recipe(data.drinks)
+            }
+            else {
+                searchCount=1;
+                sr.style.display='none'
+                mother.innerHTML = `<div class="d-flex w-100 justify-content-center align-items-center"> <img src="./images/drunkkkk.png" > </div>`
+            }
         })
 
     BlockBox.innerHTML = "";
-    mother.innerHTML=""
+    mother.innerHTML = ""
     sr.style.display = 'block';
-    document.getElementById('details').style.display='none';
-    goBack.style.display='block'
-    document.getElementById('top').style.display='none'
+    document.getElementById('details').style.display = 'none';
+    goBack.style.display = 'block'
+    document.getElementById('top').style.display = 'none'
 }
 function btn2() {
     var InputBox2 = input2.value
-    searchCount2=true;
+    searchCount2 = true;
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${InputBox2}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            Recipe(data.drinks)
+            if (data.drinks != null) {
+                // console.log(data)
+                Recipe(data.drinks)
+            }
+            else {
+                searchCount=1;
+                sr.style.display='none'
+                mother.innerHTML = `<div class="d-flex w-100 justify-content-center align-items-center"> <img src="./images/drunkkkk.png" > </div>`
+            }
         })
 
     BlockBox.innerHTML = "";
-    mother.innerHTML=""
+    mother.innerHTML = ""
     sr.style.display = 'block';
-    document.getElementById('details').style.display='none';
-    goBack.style.display='block'
-    document.getElementById('top').style.display='none'
+    document.getElementById('details').style.display = 'none';
+    goBack.style.display = 'block'
+    document.getElementById('top').style.display = 'none'
 }
 function home() {
-    
-     window.location.reload();
 
-    document.getElementById('top').style.display='none'
+    window.location.reload();
+
+    document.getElementById('top').style.display = 'none'
 }
-function goBackF(){
-    
+function goBackF() {
 
-    if(searchCount2==false){
-        if(searchCount==1){
+
+    if (searchCount2 == false) {
+        if (searchCount == 1) {
             home();
         }
-        else if(searchCount==2){
+        else if (searchCount == 2) {
             btn();
             // btn2();
-            searchCount=0;
+            searchCount = 0;
         }
-        else{
+        else {
             btn();
             // btn2();
-            searchCount=0;
+            searchCount = 0;
         }
     }
-    else{
-        if(searchCount==1){
+    else {
+        if (searchCount == 1) {
             home();
         }
-        else if(searchCount==2){
+        else if (searchCount == 2) {
             // btn();
             btn2();
-            searchCount=0;
+            searchCount = 0;
         }
-        else{
-             // btn();
-             btn2();
-             searchCount=0;
+        else {
+            // btn();
+            btn2();
+            searchCount = 0;
         }
     }
 }
 function Recipe(drinks) {
-    
-    searchCount=searchCount+1;
+
+    searchCount = searchCount + 1;
     for (const drink of drinks) {
-        const { strDrinkThumb, strDrink,idDrink } = drink
+        const { strDrinkThumb, strDrink, idDrink } = drink
         // console.log(strDrinkThumb,strDrink)
         const NewDiv = document.createElement("div")
         NewDiv.classList = "col"
+        NewDiv.setAttribute('data-aos','fade-up')
+        NewDiv.setAttribute('data-aos-duration','1000')
+        NewDiv.setAttribute('data-aos-easing','ease-in-out')
         NewDiv.innerHTML = `<img onclick="LoadRecipeDetails('${idDrink}')" class="w-100" src="${strDrinkThumb}"> <p class="text-light text-center">${strDrink}</p>`;
 
         mother.appendChild(NewDiv)
     }
 }
-function LoadRecipeDetails(idDrink){
-    searchCount=searchCount+1;
-    
-    const url=`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`;
+function LoadRecipeDetails(idDrink) {
+    searchCount = searchCount + 1;
+
+    const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`;
     fetch(url)
-    .then(res => res.json())
-    .then(data => showRecipeDetails(data.drinks[0]))
-    document.getElementById('details').style.display='block';
-    mother.innerHTML='';
-    listIngredient.innerHTML='';
-    ingredientThumb.innerHTML='';
-    instructions.innerHTML='';
-    sr.style.display='none';
-    goBack.style.display='block';
-    document.getElementById('top').style.display='none'
+        .then(res => res.json())
+        .then(data => showRecipeDetails(data.drinks[0]))
+    document.getElementById('details').style.display = 'block';
+    mother.innerHTML = '';
+    listIngredient.innerHTML = '';
+    ingredientThumb.innerHTML = '';
+    instructions.innerHTML = '';
+    sr.style.display = 'none';
+    goBack.style.display = 'block';
+    document.getElementById('top').style.display = 'none'
 }
-function showRecipeDetails(drink){
+function showRecipeDetails(drink) {
     // console.log(Object.keys(drink),Object.values(drink))
     // Object.keys(drink).find(x => console.log(x.valueOf('strIngredient1')));
-    const{strDrink,strDrinkThumb,strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15}=drink;
+    const { strDrink, strDrinkThumb, strInstructions, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6, strIngredient7, strIngredient8, strIngredient9, strIngredient10, strIngredient11, strIngredient12, strIngredient13, strIngredient14, strIngredient15 } = drink;
     // console.log(strDrink,strDrinkThumb,strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15)
 
-    ingredientThumb.innerHTML=`<figure>
+    ingredientThumb.innerHTML = `<figure>
                                     <img class="w-100 h-100" src="${strDrinkThumb}">
-                                    <figcaption class="fs-3 text-center">${strDrink}</figcaption>
+                                    <figcaption class="fs-3 text-center text-warning">${strDrink}</figcaption>
                                 </figure>`;
-    if(strIngredient1!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient1;
+    if (strIngredient1 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient1;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient2!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient2;
+    if (strIngredient2 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient2;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient3!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient3;
+    if (strIngredient3 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient3;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient4!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient4;
+    if (strIngredient4 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient4;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient5!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient5;
+    if (strIngredient5 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient5;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient6!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient6;
+    if (strIngredient6 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient6;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient7!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient7;
+    if (strIngredient7 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient7;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient8!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient8;
+    if (strIngredient8 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient8;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient9!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient9;
+    if (strIngredient9 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient9;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient10!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient10;
+    if (strIngredient10 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient10;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient11!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient11;
+    if (strIngredient11 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient11;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient12!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient12;
+    if (strIngredient12 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient12;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient13!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient13;
+    if (strIngredient13 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient13;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient14!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient14;
+    if (strIngredient14 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient14;
         listIngredient.appendChild(newLi)
     }
-    if(strIngredient15!=null){
-        const newLi=document.createElement('li');
-        newLi.innerText=strIngredient15;
+    if (strIngredient15 != null) {
+        const newLi = document.createElement('li');
+        newLi.innerText = strIngredient15;
         listIngredient.appendChild(newLi)
     }
-    instructions.innerText=strInstructions;
+    instructions.innerText = strInstructions;
 }
 
 
@@ -223,26 +240,29 @@ function searchCat(cats) {
 }
 function displayDrinks(drink) {
     // console.log(drink)
-    const { strDrink, strDrinkThumb,idDrink } = drink;
+    const { strDrink, strDrinkThumb, idDrink } = drink;
     // console.log(strDrink, strDrinkThumb,idDrink);
 
     const NewDiv = document.createElement("div")
     NewDiv.classList = "col"
+    NewDiv.setAttribute('data-aos','fade-up')
+    NewDiv.setAttribute('data-aos-duration','1000')
+    NewDiv.setAttribute('data-aos-easing','ease-in-out')
     NewDiv.innerHTML = `<img onclick="LoadRecipeDetails('${idDrink}')" class="w-100" src="${strDrinkThumb}"> <p class="text-light text-center">${strDrink}</p>`;
 
     mother.appendChild(NewDiv)
 
 }
 defaultFx();
-var navCount=0;
-function navTog(){
-    navCount=navCount+1;
-    if(navCount===1){
-        document.getElementById('navTog').style.backgroundColor='gray'
+var navCount = 0;
+function navTog() {
+    navCount = navCount + 1;
+    if (navCount === 1) {
+        document.getElementById('navTog').style.backgroundColor = 'gray'
     }
-    if(navCount===2){
-        
-        document.getElementById('navTog').style.backgroundColor='transparent'
-        navCount=0;
+    if (navCount === 2) {
+
+        document.getElementById('navTog').style.backgroundColor = 'transparent'
+        navCount = 0;
     }
 }
