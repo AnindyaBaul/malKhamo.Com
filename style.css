@@ -283,6 +283,9 @@ footer {
     .db-info{
         font-size: 10px!important;
     }
+    #mother img{
+        width: 100%;
+    }
 }
 @media only screen and (min-width:689px) and (max-width:992px){
     .nav1 {
